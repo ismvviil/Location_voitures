@@ -1,5 +1,6 @@
 import imagekit from "../configs/imageKit.js";
 import User from "../models/User.js";
+import Car from "../models/Car.js";
 import fs from "fs";
 export const changerRoleToOwner = async (req, res) => {
   try {
@@ -32,7 +33,7 @@ export const addCar = async (req, res) => {
     const fileBuffer = fs.readFileSync(imageFile.path);
     const response = await imagekit.upload({
       file: fileBuffer,
-      fileName: imageFile.originalName,
+      fileName: imageFile.originalname,
       folder: "/cars",
     });
 
@@ -50,6 +51,19 @@ export const addCar = async (req, res) => {
           format: "webp",
         },
       ],
+    });
+
+    const image = optimizedImageUrl;
+
+    await Car.create({
+      ...car,
+      owner: _id,
+      image,
+    });
+
+    res.json({
+      success: true,
+      message: "Car Added",
     });
   } catch (error) {
     console.log(error.message);
