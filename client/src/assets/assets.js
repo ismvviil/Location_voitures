@@ -339,8 +339,8 @@ export const dummyMyBookingsData = [
         "owner": "6847f7cab3d8daecdb517095",
         "pickupDate": "2025-06-13T00:00:00.000Z",
         "returnDate": "2025-06-14T00:00:00.000Z",
-        "status": "confirmée",
-        "price": 90,
+        "status": "confirmed",
+        "price": 900,
         "createdAt": "2025-06-10T12:57:48.244Z",
     },
     {
@@ -350,8 +350,8 @@ export const dummyMyBookingsData = [
         "owner": "67fe3467ed8a8fe17d0ba6e2",
         "pickupDate": "2025-06-12T00:00:00.000Z",
         "returnDate": "2025-06-12T00:00:00.000Z",
-        "status": "en_attente",
-        "price": 35,
+        "status": "pending",
+        "price": 350,
         "createdAt": "2025-06-10T12:57:25.613Z",
     },
     {
@@ -361,8 +361,8 @@ export const dummyMyBookingsData = [
         "owner": "67fe3467ed8a8fe17d0ba6e2",
         "pickupDate": "2025-06-11T00:00:00.000Z",
         "returnDate": "2025-06-12T00:00:00.000Z",
-        "status": "en_attente",
-        "price": 80,
+        "status": "pending",
+        "price": 800,
         "createdAt": "2025-06-10T09:55:06.379Z",
     },
     {
@@ -372,8 +372,8 @@ export const dummyMyBookingsData = [
         "owner": "6847f7cab3d8daecdb517095",
         "pickupDate": "2025-06-11T00:00:00.000Z",
         "returnDate": "2025-06-12T00:00:00.000Z",
-        "status": "confirmée",
-        "price": 110,
+        "status": "confirmed",
+        "price": 1100,
         "createdAt": "2025-06-10T09:44:25.410Z",
     }
 ]
