@@ -1,19 +1,96 @@
 import React, { useEffect, useState } from "react";
-import { assets, dummyCarData } from "../../assets/assets";
+import { assets } from "../../assets/assets";
 import Title from "../../components/owner/Title";
+import { useAppContext } from "../../context/AppContext";
+import toast from "react-hot-toast";
 
 function ManageCars() {
+  const { isOwner, axios, currency } = useAppContext();
   const [cars, setCars] = useState([]);
 
-  const currency = import.meta.env.VITE_CURRENCY;
+  const [loading, setLoading] = useState(true);
 
   const fetchOwnerCars = async () => {
-    setCars(dummyCarData);
+    try {
+      setLoading(true);
+      console.log("Fetching owner cars..."); // Debug log
+
+      const { data } = await axios.get("/api/owner/cars");
+      console.log("Cars response:", data); // Debug log
+
+      if (data.success) {
+        setCars(data.cars || []);
+        console.log("Cars loaded:", data.cars?.length || 0); // Debug log
+
+        if (!data.cars || data.cars.length === 0) {
+          // toast.error(
+          //   "Aucune voiture trouvée. Ajoutez votre première voiture !"
+          // );
+        } else {
+          toast.success(data.message || "Voitures chargées avec succès");
+        }
+      } else {
+        toast.error(data.message || "Erreur lors du chargement des voitures");
+        setCars([]);
+      }
+    } catch (error) {
+      console.error("Error fetching cars:", error); // Debug log
+      toast.error(
+        error.response?.data?.message || error.message || "Erreur de connexion"
+      );
+      setCars([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const toggleAvailability = async (carId) => {
+    try {
+      const { data } = await axios.post(`/api/owner/toggle-car`, { carId });
+      if (data.success) {
+        // Mettre à jour l'état local
+
+        toast.success(data.message);
+        fetchOwnerCars();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error("Erreur lors de la mise à jour", error);
+    }
+  };
+
+  const deleteCar = async (carId) => {
+    try {
+      console.log("Deleting car:", carId);
+
+      const confirm = window.confirm(
+        "Êtes-vous sûr de vouloir supprimer cette voiture ? Cette action est irréversible."
+      );
+
+      if (!confirm) return;
+
+      // ✅ Envoyer l'objet avec carId correctement
+      const { data } = await axios.post("/api/owner/delete-car", { carId });
+
+      console.log("Delete response:", data);
+
+      if (data.success) {
+        toast.success(data.message);
+        // Recharger la liste des voitures
+        fetchOwnerCars();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.error("Delete error:", error);
+      toast.error("Erreur lors de la suppression");
+    }
   };
 
   useEffect(() => {
-    fetchOwnerCars();
-  }, []);
+    isOwner && fetchOwnerCars();
+  }, [isOwner]);
 
   return (
     <div className="px-4 pt-10 md:px-10 w-full">
@@ -77,6 +154,7 @@ function ManageCars() {
 
                 <td className="flex items-center p-3">
                   <img
+                    onClick={() => toggleAvailability(car._id)}
                     src={
                       car.isAvaliable ? assets.eye_close_icon : assets.eye_icon
                     }
@@ -84,6 +162,7 @@ function ManageCars() {
                     className="cursor-pointer"
                   />
                   <img
+                    onClick={() => deleteCar(car._id)}
                     src={assets.delete_icon}
                     alt=""
                     className="cursor-pointer"
