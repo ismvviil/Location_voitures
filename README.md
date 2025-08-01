@@ -173,13 +173,6 @@ npm run dev
 
 L'application sera disponible sur `http://localhost:5173`
 
-## 📊 Statistiques du Projet
-
-- **2** voitures disponibles
-- **2** réservations en attente
-- **1** réservation terminée
-- **2000 DH** de chiffre d'affaires mensuel
-
 ## 🎯 Roadmap
 
 - [ ] Système de paiement en ligne (Stripe/PayPal)
@@ -205,8 +198,8 @@ Les contributions sont les bienvenues ! Pour contribuer :
 ## 📫 Contact
 
 - **Email**: contact@marocdrive.com
-- **Site Web**: [www.marocdrive.com](https://www.marocdrive.com)
-- **GitHub**: [@marocdrive](https://github.com/marocdrive)
+- **Site Web**: https://location-voiture-three.vercel.app/
+- **GitHub**: https://github.com/ismvviil/Location_voitures
 
 ## ⭐ Support
 
