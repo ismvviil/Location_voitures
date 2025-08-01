@@ -1,6 +1,8 @@
 # 🚗 MarocDrive - Application de Location de Voitures
 
-<div align="center"> <img src="./screenshots/logo.png" alt="MarocDrive Logo" width="200" height="auto" style="border-radius: 15px;"> </div>
+<div align="center">
+  <img src="./screenshots/logo.png" alt="MarocDrive Logo" width="200" height="auto" style="border-radius: 15px;">
+</div>
 
 Une application web moderne de location de voitures développée avec React et Node.js, spécialement conçue pour le marché marocain.
 
@@ -21,6 +23,10 @@ Une application web moderne de location de voitures développée avec React et N
 ### Gestion des Véhicules
 ![Gestion Véhicules](./screenshots/car-management.png)
 *Interface d'ajout et modification des véhicules*
+
+### Version Mobile Responsive
+![Version Mobile](./screenshots/mobile-responsive.png)
+*Interface adaptée pour tous les appareils mobiles*
 
 ## 🌟 Fonctionnalités Principales
 
@@ -167,6 +173,13 @@ npm run dev
 
 L'application sera disponible sur `http://localhost:5173`
 
+## 📊 Statistiques du Projet
+
+- **2** voitures disponibles
+- **2** réservations en attente
+- **1** réservation terminée
+- **2000 DH** de chiffre d'affaires mensuel
+
 ## 🎯 Roadmap
 
 - [ ] Système de paiement en ligne (Stripe/PayPal)
@@ -188,11 +201,12 @@ Les contributions sont les bienvenues ! Pour contribuer :
 4. Push vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrir une Pull Request
 
+
 ## 📫 Contact
 
-- **Email**: souifiismail@gmail.com
-- **Site Web**: https://location-voiture-three.vercel.app/
-- **GitHub**: https://github.com/ismvviil/Location_voitures
+- **Email**: contact@marocdrive.com
+- **Site Web**: [www.marocdrive.com](https://www.marocdrive.com)
+- **GitHub**: [@marocdrive](https://github.com/marocdrive)
 
 ## ⭐ Support
 
