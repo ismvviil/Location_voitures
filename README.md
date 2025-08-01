@@ -1,7 +1,6 @@
 # 🚗 MarocDrive - Application de Location de Voitures
 
-<img src="./screenshots/logo.png" alt="MarocDrive Logo" width="200" height="auto">
-
+<div align="center"> <img src="./screenshots/logo.png" alt="MarocDrive Logo" width="200" height="auto" style="border-radius: 15px;"> </div>
 
 Une application web moderne de location de voitures développée avec React et Node.js, spécialement conçue pour le marché marocain.
 
